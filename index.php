@@ -267,6 +267,14 @@ javascript_countdown.init(180, 'javascript_countdown_time');
 		</p>
         </div>
     </div>
+    <div class="portlet" id="trendlevel">
+        <div class="portlet-header">Trend Level</div>
+        <div class="portlet-content">
+		<p align="center">
+		<? include("content/trendlevel.php"); ?>
+		</p>
+        </div>
+    </div>
 </div> 
 </body>
 </html>

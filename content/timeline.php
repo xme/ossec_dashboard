@@ -14,7 +14,7 @@
   $timeEnd = $timeNow - (10 * $formPeriod);
   $stringStart = date('D, j M Y H:i:s', $timeNow);
   $stringEnd = date('D, j M Y H:i:s', $timeEnd);
-  echo '<p class="quiet large">' . $stringEnd . ' - ' . $stringStart . '</p>';
+  echo '<p class="quiet large">' . $stringEnd . ' to ' . $stringStart . '</p>';
 
   $max=0;
   $count = array();
@@ -31,7 +31,7 @@
     if ($count[$i] > $max) { $max = $count[$i]; }
   }
   $scale = 180 / $max;
-  echo '<table width="100%"><tr valign="bottom">';
+  echo '<table class="sample" width="100%"><tr valign="bottom">';
   for ($i=9; $i >= 0; $i--)
   {
     $height=$count[$i] * $scale;
