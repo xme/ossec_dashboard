@@ -1,10 +1,10 @@
 <?
-  include("settings.inc");
+  include("settings.php");
   $secPeriods = array("1800", "3600", "10800", "43200",
 			"86400", "604800", "2592000", "31536000");
   $namePeriods = array("30 minutes", "1 hour", "3 hours", "12 hours",
 			"1 day", "7 days", "1 month", "1 year");
-  $formPeriod = $_GET["formPeriod"];
+  $formPeriod = isset($_GET["formPeriod"]) ? $_GET["formPeriod"] : 3600;
   if (!in_array($formPeriod, $secPeriods)) {
     # Set default period - 1h
     $formPeriod = "3600"; 
@@ -23,7 +23,7 @@
     $timeStart = $timeNow - ($formPeriod * $i);
     $timePast = $timeStart - $formPeriod;
     mysql_connect($dbHost,$dbUser, $dbPass);
-    @mysql_select_db($dbName) or die("Unable to connect to database");
+    mysql_select_db($dbName) or die("Unable to connect to database");
 
     $dbQuery = "select count(timestamp) as count from alert where timestamp between $timePast and $timeStart";
     $dbResult = mysql_query($dbQuery);
