@@ -1,7 +1,7 @@
 <html>
 <head>
 <?
-  $formAuto = $_GET["formAuto"];
+  $formAuto = isset($_GET["formAuto"]) ? $_GET["formAuto"] : "off";
   if ($formAuto == "on") {
     echo '<META HTTP-EQUIV="refresh" CONTENT="60">';
   }
@@ -116,7 +116,7 @@ $(document).ready( function () {
                       "86400", "604800", "2592000", "31536000");
   $namePeriods = array("30 minutes", "1 hour", "3 hours", "12 hours",
                        "1 day", "7 days", "1 month", "1 year");
-  $formPeriod = $_GET["formPeriod"];
+  $formPeriod = isset($_GET["formPeriod"]) ? $_GET["formPeriod"] : 3600;
   if (!in_array($formPeriod, $secPeriods)) {
     # Set default period - 1h
     $formPeriod = "3600";
